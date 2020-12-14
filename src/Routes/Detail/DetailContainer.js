@@ -28,11 +28,9 @@ export default class extends React.Component {
     let result = null;
     try {
         if(isMovie){
-            const reqeust = await moviesApi.movieDetail(parsedId);
-            result = reqeust.data
+            ({data:result} = await moviesApi.movieDetail(parsedId))
         }else{
-            const reqeust = await tvApi.showDetail(parsedId);
-            result = reqeust.data
+            ({data:result} = await tvApi.showDetail(parsedId))
         }
     } catch {
         this.setState({error:"Can't find anything."})
@@ -42,8 +40,8 @@ export default class extends React.Component {
   }
 
   render() {
-      console.log(this.state)
-    const { result, error, loading } = this.state;
+      const { result, error, loading } = this.state;
+      console.log(result)
     return <DetailPresenter result={result} error={error} loading={loading} />;
   }
 }
