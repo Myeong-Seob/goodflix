@@ -6,8 +6,8 @@ import {
   Switch,
 } from "react-router-dom";
 import Home from "Routes/Home";
-import Search from "Routes/Search";
-import Tv from "Routes/Tv";
+import Search from "Routes/Search/index";
+import Tv from "Routes/TV/index";
 import Header from "./Header";
 
 export default () => (
