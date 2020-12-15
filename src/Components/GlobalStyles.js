@@ -11,7 +11,7 @@ const globalStyles = createGlobalStyle`
         box-sizing:border-box;
     }
     body{
-        padding-top:50px;
+        padding-top:80px;
         font-size:12px;
         color:white;
         background-color:rgba(20,20,20,1);
