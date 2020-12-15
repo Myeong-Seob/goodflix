@@ -18,7 +18,7 @@ export default class extends React.Component {
       this.setState({topRated, popular,airingToday})
     } catch  {
       this.setState({
-        error: "Cant' find Movies informations.",
+        error: "Cant' find TV Shows informations.",
       });
     }finally{
       this.setState({
@@ -29,7 +29,6 @@ export default class extends React.Component {
 
 
   render(){
-    console.log(this.state)
     const {topRated, popular,airingToday,error,loading} = this.state
     return(
       <TvPresenter
