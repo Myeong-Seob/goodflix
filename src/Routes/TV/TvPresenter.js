@@ -9,24 +9,24 @@ const Container = styled.div`
   padding: 0px 20px;
 `;
 
-const Text = styled.span``;
+const TitleText = styled.span``;
 
 const TvPresenter = ({ topRated, popular, airingToday, loading, error }) =>
   loading ? <Loader /> : (
     <Container>
       {topRated && topRated.length > 0 && (
         <Section title={"Top Rated"}>
-          {topRated.map((show) => <Text key={show.id}>{show.name}</Text>)}
+          {topRated.map((show) => <TitleText key={show.id}>{show.name}</TitleText>)}
         </Section>
       )}
       {popular && popular.length > 0 && (
         <Section title={"Popular"}>
-          {popular.map((show) => <Text key={show.id}>{show.name}</Text>)}
+          {popular.map((show) => <TitleText key={show.id}>{show.name}</TitleText>)}
         </Section>
       )}
       {airingToday && airingToday.length > 0 && (
         <Section title={"Popular"}>
-          {airingToday.map((show) => <Text key={show.id}>{show.name}</Text>)}
+          {airingToday.map((show) => <TitleText key={show.id}>{show.name}</TitleText>)}
         </Section>
       )}
       {error && <Message color="#e74c3c" text={error}/>}
