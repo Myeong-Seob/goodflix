@@ -10,8 +10,6 @@ const Container = styled.div`
   padding: 0px 20px;
 `;
 
-const TitleText = styled.span``;
-
 const HomePresenter = ({ nowPlaying, popular, upcoming, error, loading }) =>
   loading ? (
     <Loader />
@@ -27,7 +25,7 @@ const HomePresenter = ({ nowPlaying, popular, upcoming, error, loading }) =>
               imageUrl={movie.poster_path}
               title={movie.original_title}
               rating={movie.vote_average}
-              year={movie.release_date&&movie.release_date.substring(0, 4)}
+              year={movie.release_date && movie.release_date.substring(0, 4)}
             />
           ))}
         </Section>
@@ -35,14 +33,30 @@ const HomePresenter = ({ nowPlaying, popular, upcoming, error, loading }) =>
       {upcoming && upcoming.length > 0 && (
         <Section title={"Coming Soon"}>
           {upcoming.map((movie) => (
-            <TitleText key={movie.id}>{movie.title}</TitleText>
+            <Poster
+              key={movie.id}
+              id={movie.id}
+              isMove={true}
+              imageUrl={movie.poster_path}
+              title={movie.original_title}
+              rating={movie.vote_average}
+              year={movie.release_date && movie.release_date.substring(0, 4)}
+            />
           ))}
         </Section>
       )}
       {popular && popular.length > 0 && (
         <Section title={"Popular"}>
           {popular.map((movie) => (
-            <TitleText key={movie.id}>{movie.title}</TitleText>
+            <Poster
+              key={movie.id}
+              id={movie.id}
+              isMove={true}
+              imageUrl={movie.poster_path}
+              title={movie.original_title}
+              rating={movie.vote_average}
+              year={movie.release_date && movie.release_date.substring(0, 4)}
+            />
           ))}
         </Section>
       )}

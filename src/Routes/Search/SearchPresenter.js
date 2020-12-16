@@ -21,8 +21,6 @@ const Input = styled.input`
   width: 100%;
 `;
 
-const TitleText = styled.span``;
-
 const SearchPresenter = ({
   handleSubmit,
   movieResults,
@@ -62,7 +60,14 @@ const SearchPresenter = ({
         {tvResults && tvResults.length > 0 && (
           <Section title={"TV Show Results"}>
             {tvResults.map((show) => (
-              <TitleText key={show.id}>{show.name}</TitleText>
+              <Poster
+              key={show.id}
+              id={show.id}
+              imageUrl={show.poster_path}
+              title={show.original_name}
+              rating={show.vote_average}
+              year={show.first_air_date && show.first_air_date.substring(0, 4)}
+            />
             ))}
           </Section>
         )}

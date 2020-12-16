@@ -8,7 +8,7 @@ const Container = styled.div`
 `;
 
 const Image = styled.div`
-    background-image:url(${props=>`https://image.tmdb.org/t/p/w300${props.bgUrl}`});
+    background-image:url(${props => props.bgUrl});
     height:180px;
     background-size:cover;
     border-radius:4px;
@@ -52,7 +52,7 @@ const Poster = ({ id,imageUrl, title, rating, year, isMove = false }) => (
   <Link to={isMove ? `/movie/${id}` : `/show/${id}`}>
     <Container>
       <ImageContainer>
-        <Image bgUrl={imageUrl} />
+        <Image bgUrl={imageUrl? `https://image.tmdb.org/t/p/w300${imageUrl}`: ("https://images.unsplash.com/photo-1579990087546-177610dff49b?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=630&q=80") } />
         <Rating>
           <span role="img" aria-label="rating">
             🌟
