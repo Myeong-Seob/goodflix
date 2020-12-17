@@ -2,6 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import styled from "styled-components";
 import Loader from "Components/Loader";
+import Helmet from "react-helmet";
 
 const Container = styled.div`
   height: calc(100vh - 50px);
@@ -69,9 +70,20 @@ const Cover = styled.div`
 
 const DetailPresenter = ({ result, error, loading }) =>
   loading ? (
-    <Loader />
+    <>
+      <Helmet>
+        <title>Loading | Goodflix</title>
+      </Helmet>
+      <Loader />
+    </>
   ) : (
     <Container>
+      <Helmet>
+        <title>
+          {result.original_title ? result.original_title : result.original_name}{" "}
+          | Goodflix
+        </title>
+      </Helmet>
       <Backdrop
         bgImage={`https://image.tmdb.org/t/p/original${result.backdrop_path}`}
       />
