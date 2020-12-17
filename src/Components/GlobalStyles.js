@@ -1,5 +1,5 @@
-import {createGlobalStyle} from 'styled-components';
-import reset from 'styled-reset';
+import { createGlobalStyle } from "styled-components";
+import reset from "styled-reset";
 
 const globalStyles = createGlobalStyle`
     ${reset};
@@ -11,7 +11,7 @@ const globalStyles = createGlobalStyle`
         box-sizing:border-box;
     }
     body{
-        padding-top:80px;
+        padding-top:50px;
         font-size:12px;
         color:white;
         background-color:rgba(20,20,20,1);
@@ -19,4 +19,4 @@ const globalStyles = createGlobalStyle`
     }
 `;
 
-export default globalStyles
+export default globalStyles;
