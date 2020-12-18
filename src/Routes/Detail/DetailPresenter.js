@@ -33,7 +33,7 @@ const Content = styled.div`
 `;
 
 const Data = styled.div`
-  padding: 30px;
+  padding: 40px;
   width: 60%;
 `;
 
