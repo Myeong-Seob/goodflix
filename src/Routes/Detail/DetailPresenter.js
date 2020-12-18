@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 import styled from "styled-components";
 import Loader from "Components/Loader";
 import Helmet from "react-helmet";
+import VideoSlider from "Components/VideoSlider";
 
 const Container = styled.div`
   height: calc(100vh - 50px);
@@ -68,6 +69,11 @@ const Cover = styled.div`
   border-radius: 5px;
 `;
 
+const Video = styled.div`
+  width: 100%;
+  margin-top: 15px;
+`;
+
 const DetailPresenter = ({ result, error, loading }) =>
   loading ? (
     <>
@@ -123,6 +129,9 @@ const DetailPresenter = ({ result, error, loading }) =>
             </Item>
           </ItemContainer>
           <Overview>{result.overview}</Overview>
+          <Video>
+            <VideoSlider results={result.videos.results} />
+          </Video>
         </Data>
       </Content>
     </Container>
