@@ -5,6 +5,7 @@ import Loader from "Components/Loader";
 import Helmet from "react-helmet";
 import VideoSlider from "Components/VideoSlider";
 import IMDB from "Components/IMDB";
+import Season from "Components/Season";
 
 const Container = styled.div`
   height: calc(100vh - 50px);
@@ -36,6 +37,7 @@ const Content = styled.div`
 const Data = styled.div`
   padding: 40px;
   width: 60%;
+  overflow: scroll;
 `;
 
 const TitleContiner = styled.div`
@@ -141,6 +143,9 @@ const DetailPresenter = ({ result, error, loading }) =>
           <Video>
             <VideoSlider results={result.videos.results} />
           </Video>
+          {result.seasons && result.seasons.length >= 1 && (
+            <Season seasons={result.seasons} />
+          )}
         </Data>
       </Content>
     </Container>

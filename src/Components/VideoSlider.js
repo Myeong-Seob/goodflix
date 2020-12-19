@@ -7,8 +7,16 @@ const Container = styled.div`
   max-width: 600px;
   width: 100%;
   display: flex;
+  flex-direction: column;
   justify-content: center;
 `;
+
+const Title = styled.p`
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 10px;
+`;
+
 const Video = styled.div`
   width: 100%;
 `;
@@ -16,6 +24,7 @@ const Video = styled.div`
 const VideoSlider = ({ results }) => {
   return (
     <Container>
+      <Title>Video</Title>
       <Video>
         <ReactPlayer
           width={"100%"}
