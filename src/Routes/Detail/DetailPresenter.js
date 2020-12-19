@@ -144,7 +144,7 @@ const DetailPresenter = ({ result, error, loading }) =>
             <VideoSlider results={result.videos.results} />
           </Video>
           {result.seasons && result.seasons.length >= 1 && (
-            <Season seasons={result.seasons} />
+            <Season key={result.id} seasons={result.seasons} />
           )}
         </Data>
       </Content>

@@ -2,7 +2,7 @@ import { moviesApi, tvApi } from "API";
 import React from "react";
 import SearchPresenter from "./SearchPresenter";
 
-export default class extends React.Component {
+export default class SearchContainer extends React.Component {
   state = {
     movieResults: null,
     tvResults: null,
@@ -20,9 +20,11 @@ export default class extends React.Component {
   };
 
   updateTerm = (event) => {
-    const {target:{value}} = event;
-    this.setState({searchTerm:value})
-  }
+    const {
+      target: { value },
+    } = event;
+    this.setState({ searchTerm: value });
+  };
 
   searchByTerm = async () => {
     const { searchTerm } = this.state;
@@ -35,7 +37,6 @@ export default class extends React.Component {
         data: { results: tvResults },
       } = await tvApi.search(searchTerm);
       this.setState({ movieResults, tvResults });
-      
     } catch {
       this.setState({ error: "Can't find results." });
     } finally {
