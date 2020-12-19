@@ -4,6 +4,7 @@ import styled from "styled-components";
 import Loader from "Components/Loader";
 import Helmet from "react-helmet";
 import VideoSlider from "Components/VideoSlider";
+import IMDB from "Components/IMDB";
 
 const Container = styled.div`
   height: calc(100vh - 50px);
@@ -37,9 +38,14 @@ const Data = styled.div`
   width: 60%;
 `;
 
+const TitleContiner = styled.div`
+  display: flex;
+  margin-bottom: 20px;
+  align-items: center;
+`;
+
 const Title = styled.h3`
   font-size: 32px;
-  margin-bottom: 20px;
 `;
 
 const ItemContainer = styled.div`
@@ -102,11 +108,14 @@ const DetailPresenter = ({ result, error, loading }) =>
           }
         />
         <Data>
-          <Title>
-            {result.original_title
-              ? result.original_title
-              : result.original_name}
-          </Title>
+          <TitleContiner>
+            <Title>
+              {result.original_title
+                ? result.original_title
+                : result.original_name}
+            </Title>
+            <IMDB id={result.imdb_id} />
+          </TitleContiner>
           <ItemContainer>
             <Item>
               {result.release_date
