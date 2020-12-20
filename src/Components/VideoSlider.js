@@ -2,6 +2,7 @@ import React from "react";
 import ReactPlayer from "react-player/youtube";
 import PropTypes from "prop-types";
 import styled from "styled-components";
+import SubTitle from "./SubTitle";
 
 const Container = styled.div`
   max-width: 600px;
@@ -11,12 +12,6 @@ const Container = styled.div`
   justify-content: center;
 `;
 
-const Title = styled.p`
-  font-size: 20px;
-  font-weight: 600;
-  margin-bottom: 10px;
-`;
-
 const Video = styled.div`
   width: 100%;
 `;
@@ -24,7 +19,7 @@ const Video = styled.div`
 const VideoSlider = ({ results }) => {
   return (
     <Container>
-      <Title>Video</Title>
+      <SubTitle text={"Video"} />
       <Video>
         <ReactPlayer
           width={"100%"}

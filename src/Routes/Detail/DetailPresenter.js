@@ -6,6 +6,7 @@ import Helmet from "react-helmet";
 import VideoSlider from "Components/VideoSlider";
 import IMDB from "Components/IMDB";
 import Season from "Components/Season";
+import SubTitle from "Components/SubTitle";
 
 const Container = styled.div`
   height: calc(100vh - 50px);
@@ -77,6 +78,8 @@ const Cover = styled.div`
   border-radius: 5px;
 `;
 
+const OverviewContainer = styled.div``;
+
 const Video = styled.div`
   width: 100%;
   margin-top: 15px;
@@ -116,7 +119,7 @@ const DetailPresenter = ({ result, error, loading }) =>
                 ? result.original_title
                 : result.original_name}
             </Title>
-            <IMDB id={result.imdb_id} />
+            {result.imdb_id && <IMDB id={result.imdb_id} />}
           </TitleContiner>
           <ItemContainer>
             <Item>
@@ -139,7 +142,10 @@ const DetailPresenter = ({ result, error, loading }) =>
                 )}
             </Item>
           </ItemContainer>
-          <Overview>{result.overview}</Overview>
+          <OverviewContainer>
+            <SubTitle text={"Overview"} />
+            <Overview>{result.overview}</Overview>
+          </OverviewContainer>
           <Video>
             <VideoSlider results={result.videos.results} />
           </Video>

@@ -1,18 +1,12 @@
 import React from "react";
 import styled from "styled-components";
 import PropTypes from "prop-types";
+import SubTitle from "./SubTitle";
 
 const Container = styled.div`
   width: 100%;
   margin-top: 15px;
 `;
-
-const Title = styled.p`
-  font-size: 20px;
-  font-weight: 600;
-  margin-bottom: 10px;
-`;
-
 const ItemContainer = styled.div`
   width: 100%;
   display: flex;
@@ -49,7 +43,7 @@ const Poster = styled.div`
 
 const Season = ({ seasons }) => (
   <Container>
-    <Title>Seasons</Title>
+    <SubTitle text={"Seasons"} />
     <ItemContainer>
       {seasons.map((show) => (
         <Item>
