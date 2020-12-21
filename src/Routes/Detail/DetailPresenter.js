@@ -9,7 +9,7 @@ import Season from "Components/Season";
 import SubTitle from "Components/SubTitle";
 
 const Container = styled.div`
-  height: calc(100vh - 50px);
+  height: calc(100vh - 150px);
   width: 100%;
   position: relative;
 `;
