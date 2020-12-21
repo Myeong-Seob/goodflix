@@ -11,6 +11,7 @@ const HeaderS = styled.header`
   height: 50px;
   display: flex;
   align-items: center;
+  justify-content: space-between;
   z-index: 10;
   background-color: rgba(20, 20, 20, 0.8);
   box-shadow: 0px 1px 5px 2px rgba(0, 0, 0, 0.8);
@@ -36,6 +37,13 @@ const SLink = styled(Link)`
   justify-content: center;
 `;
 
+const Text = styled.p`
+  margin-right: 20px;
+  font-size: 2.5em;
+  font-weight: 700;
+  text-shadow: 1px 1px 2px grey, 0 0 0.3em white, 0 0 0.1em white;
+`;
+
 export default withRouter(({ location: { pathname } }) => (
   <HeaderS>
     <List>
@@ -49,5 +57,8 @@ export default withRouter(({ location: { pathname } }) => (
         <SLink to="/search">Search</SLink>
       </Item>
     </List>
+    <Text>
+      <SLink to="/">GOODFLIX</SLink>
+    </Text>
   </HeaderS>
 ));
