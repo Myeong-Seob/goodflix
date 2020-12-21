@@ -94,67 +94,74 @@ const DetailPresenter = ({ result, error, loading }) =>
       <Loader />
     </>
   ) : (
-    <Container>
-      <Helmet>
-        <title>
-          {result.original_title ? result.original_title : result.original_name}{" "}
-          | Goodflix
-        </title>
-      </Helmet>
-      <Backdrop
-        bgImage={`https://image.tmdb.org/t/p/original${result.backdrop_path}`}
-      />
-      <Content>
-        <Cover
-          bgImage={
-            result.poster_path
-              ? `https://image.tmdb.org/t/p/original${result.poster_path}`
-              : null
-          }
+    <>
+      <Container>
+        <Helmet>
+          <title>
+            {result.original_title
+              ? result.original_title
+              : result.original_name}{" "}
+            | Goodflix
+          </title>
+        </Helmet>
+        <Backdrop
+          bgImage={`https://image.tmdb.org/t/p/original${result.backdrop_path}`}
         />
-        <Data>
-          <TitleContiner>
-            <Title>
-              {result.original_title
-                ? result.original_title
-                : result.original_name}
-            </Title>
-            {result.imdb_id && <IMDB id={result.imdb_id} />}
-          </TitleContiner>
-          <ItemContainer>
-            <Item>
-              {result.release_date
-                ? result.release_date.substring(0, 4)
-                : result.first_air_date.substring(0, 4)}
-            </Item>
-            <Divider>·</Divider>
-            <Item>
-              ⏱ {result.runtime ? result.runtime : result.episode_run_time[0]}{" "}
-              min
-            </Item>
-            <Divider>·</Divider>
-            <Item>
-              {result.genres &&
-                result.genres.map((genre, index) =>
-                  index === result.genres.length - 1
-                    ? genre.name
-                    : `${genre.name} / `
-                )}
-            </Item>
-          </ItemContainer>
-          <OverviewContainer>
-            <SubTitle text={"Overview"} />
-            <Overview>{result.overview}</Overview>
-          </OverviewContainer>
-          <Video>
-            <VideoSlider results={result.videos.results} />
-          </Video>
-          {result.seasons && result.seasons.length >= 1 && (
-            <Season key={result.id} seasons={result.seasons} />
-          )}
-        </Data>
-      </Content>
-    </Container>
+        <Content>
+          <Cover
+            bgImage={
+              result.poster_path
+                ? `https://image.tmdb.org/t/p/original${result.poster_path}`
+                : null
+            }
+          />
+          <Data>
+            <TitleContiner>
+              <Title>
+                {result.original_title
+                  ? result.original_title
+                  : result.original_name}
+              </Title>
+              {result.imdb_id && <IMDB id={result.imdb_id} />}
+            </TitleContiner>
+            <ItemContainer>
+              <Item>
+                {result.release_date
+                  ? result.release_date.substring(0, 4)
+                  : result.first_air_date.substring(0, 4)}
+              </Item>
+              <Divider>·</Divider>
+              <Item>
+                ⏱ {result.runtime ? result.runtime : result.episode_run_time[0]}{" "}
+                min
+              </Item>
+              <Divider>·</Divider>
+              <Item>
+                {result.genres &&
+                  result.genres.map((genre, index) =>
+                    index === result.genres.length - 1
+                      ? genre.name
+                      : `${genre.name} / `
+                  )}
+              </Item>
+            </ItemContainer>
+            <OverviewContainer>
+              <SubTitle text={"Overview"} />
+              <Overview>{result.overview}</Overview>
+            </OverviewContainer>
+            {result.videos && result.videos.results.length >= 1 && (
+              <Video>
+                <VideoSlider results={result.videos.results} />
+              </Video>
+            )}
+
+            {result.seasons && result.seasons.length >= 1 && (
+              <Season key={result.id} seasons={result.seasons} />
+            )}
+          </Data>
+        </Content>
+      </Container>
+    </>
   );
 
 DetailPresenter.propTypes = {

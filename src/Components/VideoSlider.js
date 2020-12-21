@@ -16,18 +16,21 @@ const Video = styled.div`
   width: 100%;
 `;
 
+const Error = styled.p``;
+
 const VideoSlider = ({ results }) => {
-  return (
+  return results[0].key ? (
     <Container>
       <SubTitle text={"Video"} />
       <Video>
         <ReactPlayer
           width={"100%"}
-          key={results.id}
           url={`https://www.youtube.com/watch?v=${results[0].key}`}
         />
       </Video>
     </Container>
+  ) : (
+    <Error>No Video</Error>
   );
 };
 VideoSlider.propTypes = {
