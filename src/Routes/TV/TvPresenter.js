@@ -6,9 +6,12 @@ import Loader from "Components/Loader";
 import Message from "Components/Message";
 import Poster from "Components/Poster";
 import Helmet from "react-helmet";
+import Footer from "Components/Footer";
 
 const Container = styled.div`
   padding: 20px;
+  position: relative;
+  padding-bottom: 100px;
 `;
 
 const TvPresenter = ({ topRated, popular, airingToday, loading, error }) => (
@@ -69,6 +72,7 @@ const TvPresenter = ({ topRated, popular, airingToday, loading, error }) => (
           </Section>
         )}
         {error && <Message color="#e74c3c" text={error} />}
+        <Footer />
       </Container>
     )}
   </>

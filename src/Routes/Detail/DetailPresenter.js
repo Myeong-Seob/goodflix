@@ -7,6 +7,7 @@ import VideoSlider from "Components/VideoSlider";
 import IMDB from "Components/IMDB";
 import Season from "Components/Season";
 import SubTitle from "Components/SubTitle";
+import Footer from "Components/Footer";
 
 const Container = styled.div`
   height: calc(100vh - 150px);
@@ -161,6 +162,7 @@ const DetailPresenter = ({ result, error, loading }) =>
           </Data>
         </Content>
       </Container>
+      <Footer />
     </>
   );
 

@@ -6,9 +6,12 @@ import Loader from "Components/Loader";
 import Message from "Components/Message";
 import Poster from "Components/Poster";
 import Helmet from "react-helmet";
+import Footer from "Components/Footer";
 
 const Container = styled.div`
   padding: 20px;
+  position: relative;
+  padding-bottom: 100px;
 `;
 
 const HomePresenter = ({ nowPlaying, popular, upcoming, error, loading }) => (
@@ -19,54 +22,63 @@ const HomePresenter = ({ nowPlaying, popular, upcoming, error, loading }) => (
     {loading ? (
       <Loader />
     ) : (
-      <Container>
-        {nowPlaying && nowPlaying.length > 0 && (
-          <Section title={"Now Playing"}>
-            {nowPlaying.map((movie) => (
-              <Poster
-                key={movie.id}
-                id={movie.id}
-                isMove={true}
-                imageUrl={movie.poster_path}
-                title={movie.original_title}
-                rating={movie.vote_average}
-                year={movie.release_date && movie.release_date.substring(0, 4)}
-              />
-            ))}
-          </Section>
-        )}
-        {upcoming && upcoming.length > 0 && (
-          <Section title={"Coming Soon"}>
-            {upcoming.map((movie) => (
-              <Poster
-                key={movie.id}
-                id={movie.id}
-                isMove={true}
-                imageUrl={movie.poster_path}
-                title={movie.original_title}
-                rating={movie.vote_average}
-                year={movie.release_date && movie.release_date.substring(0, 4)}
-              />
-            ))}
-          </Section>
-        )}
-        {popular && popular.length > 0 && (
-          <Section title={"Popular"}>
-            {popular.map((movie) => (
-              <Poster
-                key={movie.id}
-                id={movie.id}
-                isMove={true}
-                imageUrl={movie.poster_path}
-                title={movie.original_title}
-                rating={movie.vote_average}
-                year={movie.release_date && movie.release_date.substring(0, 4)}
-              />
-            ))}
-          </Section>
-        )}
-        {error && <Message color="#e74c3c" text={error} />}
-      </Container>
+      <>
+        <Container>
+          {nowPlaying && nowPlaying.length > 0 && (
+            <Section title={"Now Playing"}>
+              {nowPlaying.map((movie) => (
+                <Poster
+                  key={movie.id}
+                  id={movie.id}
+                  isMove={true}
+                  imageUrl={movie.poster_path}
+                  title={movie.original_title}
+                  rating={movie.vote_average}
+                  year={
+                    movie.release_date && movie.release_date.substring(0, 4)
+                  }
+                />
+              ))}
+            </Section>
+          )}
+          {upcoming && upcoming.length > 0 && (
+            <Section title={"Coming Soon"}>
+              {upcoming.map((movie) => (
+                <Poster
+                  key={movie.id}
+                  id={movie.id}
+                  isMove={true}
+                  imageUrl={movie.poster_path}
+                  title={movie.original_title}
+                  rating={movie.vote_average}
+                  year={
+                    movie.release_date && movie.release_date.substring(0, 4)
+                  }
+                />
+              ))}
+            </Section>
+          )}
+          {popular && popular.length > 0 && (
+            <Section title={"Popular"}>
+              {popular.map((movie) => (
+                <Poster
+                  key={movie.id}
+                  id={movie.id}
+                  isMove={true}
+                  imageUrl={movie.poster_path}
+                  title={movie.original_title}
+                  rating={movie.vote_average}
+                  year={
+                    movie.release_date && movie.release_date.substring(0, 4)
+                  }
+                />
+              ))}
+            </Section>
+          )}
+          {error && <Message color="#e74c3c" text={error} />}
+          <Footer />
+        </Container>
+      </>
     )}
   </>
 );

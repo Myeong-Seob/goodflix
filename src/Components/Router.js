@@ -10,7 +10,6 @@ import Search from "Routes/Search/index";
 import Tv from "Routes/TV/index";
 import Detail from "Routes/Detail";
 import Header from "./Header";
-import Footer from "./Footer";
 
 const AppRouter = () => (
   <Router>
@@ -23,7 +22,6 @@ const AppRouter = () => (
       <Route path="/show/:id" component={Detail} />
       <Redirect from="*" to="/" />
     </Switch>
-    <Footer />
   </Router>
 );
 
