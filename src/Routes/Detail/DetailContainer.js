@@ -2,7 +2,7 @@ import { moviesApi, tvApi } from "API";
 import React from "react";
 import DetailPresenter from "./DetailPresenter";
 
-export default class extends React.Component {
+export default class DetailContainer extends React.Component {
   constructor(props) {
     super(props);
     const {
