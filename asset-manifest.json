@@ -1,0 +1,17 @@
+{
+  "files": {
+    "main.js": "/goodflix/static/js/main.b384a66a.chunk.js",
+    "main.js.map": "/goodflix/static/js/main.b384a66a.chunk.js.map",
+    "runtime-main.js": "/goodflix/static/js/runtime-main.cdd57e43.js",
+    "runtime-main.js.map": "/goodflix/static/js/runtime-main.cdd57e43.js.map",
+    "static/js/2.3792ade8.chunk.js": "/goodflix/static/js/2.3792ade8.chunk.js",
+    "static/js/2.3792ade8.chunk.js.map": "/goodflix/static/js/2.3792ade8.chunk.js.map",
+    "index.html": "/goodflix/index.html",
+    "static/js/2.3792ade8.chunk.js.LICENSE.txt": "/goodflix/static/js/2.3792ade8.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.cdd57e43.js",
+    "static/js/2.3792ade8.chunk.js",
+    "static/js/main.b384a66a.chunk.js"
+  ]
+}
